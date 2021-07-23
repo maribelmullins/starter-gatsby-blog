@@ -49,6 +49,11 @@ a {
   grid-gap: 5vmin;
 }
 
+.article-list img {
+  aspect-ratio: 244/137;
+  object-fit: cover;
+}
+
 /**
  *
  */
