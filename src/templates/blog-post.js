@@ -26,7 +26,7 @@ class BlogPostTemplate extends React.Component {
                 />
               </div>
             )}
-          <img src={post.cloudinaryimage[0].secure_url} />
+          {post.cloudinaryimage && (<img src={post.cloudinaryimage[0].secure_url} />)}
           <div className="wrapper">
             <h1 className="section-headline">{post.title}</h1>
             <p
