@@ -16,13 +16,17 @@ class BlogPostTemplate extends React.Component {
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
           <Helmet title={`${post.title} | ${siteTitle}`} />
-          <div className={heroStyles.hero}>
-            <Img
-              className={heroStyles.heroImage}
-              alt={post.title}
-              fluid={post.heroImage.fluid}
-            />
-          </div>
+          {post.heroImage &&
+           (
+              <div className={heroStyles.hero}>
+                <Img
+                  className={heroStyles.heroImage}
+                  alt={post.title}
+                  fluid={post.heroImage.fluid}
+                />
+              </div>
+            )}
+          <img src={post.cloudinaryimage[0].secure_url} />
           <div className="wrapper">
             <h1 className="section-headline">{post.title}</h1>
             <p
@@ -56,6 +60,7 @@ export const pageQuery = graphql`
           ...GatsbyContentfulFluid_tracedSVG
         }
       }
+      cloudinaryimage { secure_url }
       body {
         childMarkdownRemark {
           html
