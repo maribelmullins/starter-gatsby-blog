@@ -51,6 +51,7 @@ export const pageQuery = graphql`
               ...GatsbyContentfulFluid_tracedSVG
             }
           }
+          cloudinaryimage { secure_url }
           description {
             childMarkdownRemark {
               html
