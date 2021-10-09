@@ -49,7 +49,7 @@ a {
   grid-gap: 5vmin;
 }
 
-.article-list img {
+.article-list img, .article-list video {
   aspect-ratio: 244/137;
   object-fit: cover;
 }

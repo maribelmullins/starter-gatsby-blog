@@ -6,7 +6,9 @@ import styles from './article-preview.module.css'
 
 export default ({ article }) => (
   <div className={styles.preview}>
-    {article.cloudinaryimage && (<img alt="" src={article.cloudinaryimage[0].secure_url} />)}
+    {article.cloudinaryimage && (article.cloudinaryimage[0].resource_type === "video"
+      ? <video src={article.cloudinaryimage[0].secure_url}/>
+      : <img src={article.cloudinaryimage[0].secure_url} />)}
     {article.heroImage && (<Img alt="" fluid={article.heroImage.fluid} />)}
     <h3 className={styles.previewTitle}>
       <Link to={`/blog/${article.slug}`}>{article.title}</Link>

@@ -26,7 +26,9 @@ class BlogPostTemplate extends React.Component {
                 />
               </div>
             )}
-          {post.cloudinaryimage && (<img src={post.cloudinaryimage[0].secure_url} />)}
+          {post.cloudinaryimage && (post.cloudinaryimage[0].resource_type === "video"
+            ? <video src={post.cloudinaryimage[0].secure_url}/>
+            : <img src={post.cloudinaryimage[0].secure_url} />)}
           <div className="wrapper">
             <h1 className="section-headline">{post.title}</h1>
             <p
@@ -60,7 +62,10 @@ export const pageQuery = graphql`
           ...GatsbyContentfulFluid_tracedSVG
         }
       }
-      cloudinaryimage { secure_url }
+      cloudinaryimage {
+        secure_url
+        resource_type
+      }
       body {
         childMarkdownRemark {
           html
