@@ -27,7 +27,7 @@ class BlogPostTemplate extends React.Component {
               </div>
             )}
           {post.cloudinaryimage && (post.cloudinaryimage[0].resource_type === "video"
-            ? <video autoplay controls loop src={post.cloudinaryimage[0].secure_url}/>
+            ? <video autoPlay controls loop src={post.cloudinaryimage[0].secure_url}/>
             : <img src={post.cloudinaryimage[0].secure_url} />)}
           <div className="wrapper">
             <h1 className="section-headline">{post.title}</h1>
